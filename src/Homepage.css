@@ -1,0 +1,26 @@
+.navbar {
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.nav-btn {
+  color: rgb(161, 179, 187);
+  border: none;
+  background: none !important;
+  border-bottom: 2px solid rgb(25, 35, 45);
+  margin-right: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  width: fit-content;
+  font-size: 14px;
+}
+
+.nav-btn:hover {
+    border-bottom: 2px solid rgb(62, 135, 150);
+}
+
+.movie-section {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
