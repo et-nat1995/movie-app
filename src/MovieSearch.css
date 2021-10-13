@@ -1,0 +1,26 @@
+.search-movie {
+  padding: 10px 0px 15px 25px;
+}
+
+.search-input {
+  color: #fff;
+  border-radius: 40px;
+  padding: 10px;
+  background-color: rgb(22, 27, 38);
+}
+
+::placeholder {
+  color: #fff;
+}
+
+.border {
+  border: 2px solid rgb(48, 83, 113);
+  background-color: rgb(22, 27, 38);
+}
+
+.search-btn {
+  margin: 5px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}

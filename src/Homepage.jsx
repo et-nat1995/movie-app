@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./Homepage.css";
 import Card from "./Card";
+import MovieSearch from "./MovieSearch";
 
 const TOKEN = process.env.REACT_APP_API_KEY;
 
 function Homepage() {
   const [movieData, setMovieData] = useState();
-  const [navIndex, setNavIndex] = useState(2);
+  const [navIndex, setNavIndex] = useState(0);
 
   useEffect(() => {
     async function getPopularMovies() {
@@ -21,25 +22,27 @@ function Homepage() {
   }, []);
 
   async function getMovies(index) {
-    const moviesType = index == 1 ? "upcoming" : "popular";
+    const moviesType = index === 1 ? "upcoming" : "popular";
     const response = await fetch(
       `https://api.themoviedb.org/3/movie/${moviesType}?api_key=${TOKEN}`
     );
     const json = await response.json();
     const data = await json.results;
     await setMovieData(data);
-    await setNavIndex(index);
-  }
-
-  async function searchMovies() {
-    setNavIndex(0);
-    // searching will be done here remember to use onBlur () =>
-    return;
   }
 
   const selectedTab = (index) => {
     return navIndex === index ? "selected" : "";
   };
+
+  const handleClick = (index) => {
+    setNavIndex(index);
+    if (index > 0) {
+      getMovies(index);
+    }
+  };
+
+  const displayMovies = (data) => setMovieData(data);
 
   return (
     <>
@@ -47,25 +50,27 @@ function Homepage() {
         <button
           id={0}
           className={`nav-btn ${selectedTab(0)}`}
-          onClick={() => searchMovies()}
+          onClick={() => handleClick(0)}
         >
           Search
         </button>
         <button
           id={1}
           className={`nav-btn ${selectedTab(1)}`}
-          onClick={() => getMovies(1)}
+          onClick={() => handleClick(1)}
         >
           Upcoming Movies
         </button>
         <button
           id={2}
           className={`nav-btn ${selectedTab(2)}`}
-          onClick={() => getMovies(2)}
+          onClick={() => handleClick(2)}
         >
           Popular Movies
         </button>
       </nav>
+
+      {navIndex === 0 && <MovieSearch displayMovies={displayMovies} />}
 
       <ul className="movie-section">
         {movieData &&
