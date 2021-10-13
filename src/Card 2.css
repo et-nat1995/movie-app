@@ -1,0 +1,9 @@
+.movie-poster {
+  margin: 10px;
+  flex-grow: 1;
+}
+
+/* look for more dynamic method for last child */
+.movie-poster:last-child { 
+    flex-grow: 80;
+}

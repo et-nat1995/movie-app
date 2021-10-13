@@ -15,8 +15,12 @@
   font-size: 14px;
 }
 
+.selected {
+  border-bottom: 2px solid rgb(62, 135, 150);
+}
+
 .nav-btn:hover {
-    border-bottom: 2px solid rgb(62, 135, 150);
+  color: rgb(62, 135, 150);
 }
 
 .movie-section {

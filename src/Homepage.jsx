@@ -6,15 +6,7 @@ const TOKEN = process.env.REACT_APP_API_KEY;
 
 function Homepage() {
   const [movieData, setMovieData] = useState();
-
-  async function getMovies(type) {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${type}?api_key=${TOKEN}`
-    );
-    const json = await response.json();
-    const data = await json.results;
-    await setMovieData(data);
-  }
+  const [navIndex, setNavIndex] = useState(2);
 
   useEffect(() => {
     async function getPopularMovies() {
@@ -28,14 +20,51 @@ function Homepage() {
     getPopularMovies();
   }, []);
 
+  async function getMovies(index) {
+    const moviesType = index == 1 ? "upcoming" : "popular";
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${moviesType}?api_key=${TOKEN}`
+    );
+    const json = await response.json();
+    const data = await json.results;
+    await setMovieData(data);
+    await setNavIndex(index);
+  }
+
+  async function searchMovies() {
+    setNavIndex(0);
+    // searching will be done here remember to use onBlur () =>
+    return;
+  }
+
+  const selectedTab = (index) => {
+    return navIndex === index ? "selected" : "";
+  };
+
   return (
     <>
-      {/* ternary with if state=correct key selected-nav-item else regular-nav-item */}
-      {/* we will also display and setMovieData with this method -- think more about the search*/}
       <nav className="navbar">
-        <button className="nav-btn">Search</button>
-        <button className="nav-btn" onClick={()=>getMovies("upcoming")}>Upcoming Movies</button>
-        <button className="nav-btn" onClick={()=>getMovies("popular")}>Popular Movies</button>
+        <button
+          id={0}
+          className={`nav-btn ${selectedTab(0)}`}
+          onClick={() => searchMovies()}
+        >
+          Search
+        </button>
+        <button
+          id={1}
+          className={`nav-btn ${selectedTab(1)}`}
+          onClick={() => getMovies(1)}
+        >
+          Upcoming Movies
+        </button>
+        <button
+          id={2}
+          className={`nav-btn ${selectedTab(2)}`}
+          onClick={() => getMovies(2)}
+        >
+          Popular Movies
+        </button>
       </nav>
 
       <ul className="movie-section">
