@@ -86,7 +86,6 @@ function Homepage() {
               />
             );
           })}
-        {movieData && console.log(movieData)}
       </ul>
     </>
   );
