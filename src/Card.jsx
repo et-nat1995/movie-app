@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./Card.css";
 import { FaStar, FaStopwatch } from "react-icons/fa";
+import MovieDetails from "./MovieDetails";
 
 const TOKEN = process.env.REACT_APP_API_KEY;
 
-function Card({ id, title, rating, overview, poster }) {
+function Card({ id, title, rating, poster }) {
   const [runtime, setRuntime] = useState(0);
+  const [clicked, setClicked] = useState(false);
 
   const link = `https://image.tmdb.org/t/p/w200/${poster}`;
 
@@ -21,23 +23,38 @@ function Card({ id, title, rating, overview, poster }) {
     getRuntime();
   }, [id]);
 
+  const handleClick = () => setClicked(!clicked);
+
+  const moviePoster = poster ? (
+    <img src={link} alt={title} />
+  ) : (
+    <div className="poster-image">
+      <h3>{title}</h3>
+      <footer className="footer">No image available</footer>
+    </div>
+  );
+
   return (
-    <li className="movie-poster">
-      <header className="poster-icons">
-        <span className="poster-info">
-          <FaStar color="yellow" /> {rating}
-        </span>
-        <span className="poster-info">
-          <FaStopwatch /> {runtime} min
-        </span>
-      </header>
-      {poster ? (
-        <img src={link} alt={title} />
-      ) : (
-        <div className="poster-image">
-          <h3>{title}</h3>
-          <footer className="footer">No image available</footer>
-        </div>
+    <li className="movie">
+      <div className="movie-poster" onClick={handleClick}>
+        <header className="poster-icons">
+          <span className="poster-info">
+            <FaStar color="yellow" /> {rating}
+          </span>
+          <span className="poster-info">
+            <FaStopwatch /> {runtime} min
+          </span>
+        </header>
+        {moviePoster}
+      </div>
+      {clicked && (
+        <MovieDetails
+          id={id}
+          poster={moviePoster}
+          close={handleClick}
+          link={link}
+          title={title}
+        />
       )}
     </li>
   );

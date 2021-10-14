@@ -1,6 +1,11 @@
-.movie-poster {
+.movie {
   margin: 10px;
   flex-grow: 1;
+}
+
+.movie-poster {
+  cursor: pointer;
+  max-width: 200px;
 }
 
 /* look for more dynamic method for last child */
