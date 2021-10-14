@@ -37,6 +37,7 @@
   background-color: #fff;
   border-radius: 5px;
   padding: 0px;
+  z-index: 5;
 }
 
 .suggestion-item {

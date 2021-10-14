@@ -7,7 +7,7 @@ const TOKEN = process.env.REACT_APP_API_KEY;
 
 function Homepage() {
   const [movieData, setMovieData] = useState();
-  const [navIndex, setNavIndex] = useState(0);
+  const [navIndex, setNavIndex] = useState(2);
 
   useEffect(() => {
     async function getPopularMovies() {
