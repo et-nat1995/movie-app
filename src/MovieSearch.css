@@ -26,3 +26,29 @@
   border: 2px solid black;
   padding: 0%;
 }
+
+.suggestion-list {
+  list-style: none;
+  overflow-y: scroll;
+  position: absolute;
+  margin: 0px 3px 15px 25px;
+  width: 175px;
+  max-height: 200px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 0px;
+  z-index: 5;
+}
+
+.suggestion-item {
+  margin: 0px;
+  font-size: 13px;
+  color: black;
+  padding: 5px;
+  border-bottom: 1px solid rgb(68,70,81);
+}
+
+.suggestion-item:hover{
+  background-color: #2693ff;
+  cursor: pointer;
+}

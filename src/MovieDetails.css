@@ -1,0 +1,78 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(128, 128, 128, 0.5);
+  z-index: 10;
+}
+
+.modal {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  color: lightgrey;
+  border-radius: 5px;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  height: 400px;
+  overflow: scroll;
+  min-width: 70%;
+  background-color: rgb(54, 53, 53);
+  padding: 5px;
+  z-index: 20;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 10px 0px 10px;
+}
+
+.close {
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.movie-poster {
+  margin-left: 5px;
+}
+
+.cast-members {
+  padding: 10px;
+}
+
+.cast-list {
+  list-style: none;
+}
+
+.cast-member {
+  padding: 5px;
+}
+
+.main-section {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+}
+
+.trailer {
+  margin: 5px;
+}
+
+.cast-title {
+  text-align: center;
+}
+
+.videos {
+  flex-grow: 1;
+  margin: 15px 5px 0px 5px;
+}

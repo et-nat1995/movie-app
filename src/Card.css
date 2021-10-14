@@ -1,9 +1,47 @@
-.movie-poster {
+.movie {
   margin: 10px;
   flex-grow: 1;
 }
 
+.movie-poster {
+  cursor: pointer;
+  max-width: 200px;
+}
+
 /* look for more dynamic method for last child */
-.movie-poster:last-child { 
-    flex-grow: 80;
+.movie-poster:last-child {
+  flex-grow: 80;
+}
+
+.poster-icons {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  position: absolute;
+  width: 200px;
+  z-index: 2;
+}
+
+.poster-info {
+  color: #fff;
+  font-size: 10px;
+  background-color: rgb(14, 17, 10, 0.9);
+  border-radius: 2px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.poster-image {
+  color: white;
+  max-width: 200px;
+  min-height: 300px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.footer {
+    font-size: 10px;
 }
