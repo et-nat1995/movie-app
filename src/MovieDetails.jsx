@@ -59,9 +59,9 @@ function MovieDetails({ id, poster, title, close }) {
 
   return (
     <div className="overlay" onClick={close}>
-      <div className="modal">
-        <div className="left-side">{moviePoster}</div>
-        <div className="right-side">
+      <dialog className="modal">
+        <div className="movie-poster">{moviePoster}</div>
+        <div className="movie-info">
           <header className="modal-header">
             <h1 className="movie-title">{title}</h1>
             <GrClose onClick={close} className="close" />
@@ -72,7 +72,7 @@ function MovieDetails({ id, poster, title, close }) {
             </div>
             <div className="videos">{videos}</div>
         </div>
-      </div>
+      </dialog>
     </div>
   );
 }

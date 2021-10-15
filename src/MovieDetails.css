@@ -19,10 +19,11 @@
   transform: translate(-50%, -50%);
   height: 405px;
   overflow: scroll;
-  min-width: 70%;
+  max-width: 70%;
   background-color: rgb(54, 53, 53);
   padding: 5px;
   z-index: 20;
+  border: none;
 }
 
 .modal-header {
@@ -35,7 +36,7 @@
 
 .close {
   cursor: pointer;
-  font-size: 25px;
+  font-size: 2.5vw;
 }
 
 .movie-poster {
@@ -63,12 +64,12 @@
   min-width: 250px;
 }
 
-.left-side {
+.movie-poster {
   min-width: 250px;
   margin-right: 5px;
 }
 
-.right-side {
+.movie-info {
   display: flex;
   flex-direction: column;
 }
@@ -78,7 +79,7 @@
 }
 
 .cast-title {
-  font-size: 25px;
+  font-size: 2.5vw;
   text-align: left;
   margin-bottom: 0px;
 }
@@ -92,6 +93,6 @@
 }
 
 .movie-title {
-  font-size: 50px;
+  font-size: 3vw;
   margin: 0px;
 }

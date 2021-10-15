@@ -34,9 +34,8 @@ function Homepage() {
     return navIndex === index ? "selected" : "";
   };
 
-  const handleClick = (index) => {
+  const handleClick = (index, movieType) => {
     setNavIndex(index);
-    const movieType = index === 1 ? "upcoming" : "popular";
     if (index > 0) {
       getMovies(movieType);
     }
@@ -50,21 +49,21 @@ function Homepage() {
         <button
           id={0}
           className={`nav-btn ${selectedTab(0)}`}
-          onClick={() => handleClick(0)}
+          onClick={() => handleClick(0, "search")}
         >
           Search
         </button>
         <button
           id={1}
           className={`nav-btn ${selectedTab(1)}`}
-          onClick={() => handleClick(1)}
+          onClick={() => handleClick(1, "upcoming")}
         >
           Upcoming Movies
         </button>
         <button
           id={2}
           className={`nav-btn ${selectedTab(2)}`}
-          onClick={() => handleClick(2)}
+          onClick={() => handleClick(2, "popular")}
         >
           Popular Movies
         </button>
