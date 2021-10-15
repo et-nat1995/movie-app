@@ -21,10 +21,9 @@ function Homepage() {
     getPopularMovies();
   }, []);
 
-  async function getMovies(index) {
-    const moviesType = index === 1 ? "upcoming" : "popular";
+  async function getMovies(movieType) {
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${moviesType}?api_key=${TOKEN}`
+      `https://api.themoviedb.org/3/movie/${movieType}?api_key=${TOKEN}`
     );
     const json = await response.json();
     const data = await json.results;
@@ -37,8 +36,9 @@ function Homepage() {
 
   const handleClick = (index) => {
     setNavIndex(index);
+    const movieType = index === 1 ? "upcoming" : "popular";
     if (index > 0) {
-      getMovies(index);
+      getMovies(movieType);
     }
   };
 
