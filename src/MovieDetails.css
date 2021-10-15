@@ -19,7 +19,7 @@
   transform: translate(-50%, -50%);
   height: 405px;
   overflow: scroll;
-  min-width: 60%;
+  min-width: 70%;
   background-color: rgb(54, 53, 53);
   padding: 5px;
   z-index: 20;
