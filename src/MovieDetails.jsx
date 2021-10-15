@@ -8,6 +8,8 @@ function MovieDetails({ id, poster, title, close }) {
   const [cast, setCast] = useState([]);
   const [trailers, setTrailers] = useState([]);
 
+  const link = `https://image.tmdb.org/t/p/w200/${poster}`;
+
   useEffect(() => {
     async function getDetails() {
       const response = await fetch(
@@ -27,13 +29,22 @@ function MovieDetails({ id, poster, title, close }) {
     }
   });
 
+  const moviePoster = poster ? (
+    <img src={link} alt={title} height="98%" width="250px" />
+  ) : (
+    <div className="poster-image">
+      <h1>{title}</h1>
+      <footer className="footer">No image available</footer>
+    </div>
+  );
+
   const videos = trailers.map((data, key) => {
     if (data.type === "Trailer") {
       return (
         <span className="trailer">
           <iframe
-            width="220"
-            height="150"
+            width="275"
+            height="175"
             src={`https://www.youtube.com/embed/${data.key}`}
             frameBorder="0"
             title="Embedded youtube"
@@ -47,20 +58,24 @@ function MovieDetails({ id, poster, title, close }) {
   return (
     <div className="overlay" onClick={close}>
       <div className="modal">
-        <header className="modal-header">
-          <h1>{title}</h1>
-          <GrClose onClick={close} className="close" color="white" />
-        </header>
-        <section className="main-section">
-          <section className="movie-poster">{poster}</section>
-          <section className="right-side">
-            <section className="cast-members">
-              <h1 className="cast-title">Cast</h1>
-              <p>{castList.join(", ")}</p>
+        <div className="left-side">
+          <section className="movie-poster">{moviePoster}</section>
+        </div>
+        <div className="right-side">
+          <header className="modal-header">
+            <h1 className="movie-title">{title}</h1>
+            <GrClose onClick={close} className="close" />
+          </header>
+          <section className="main-section">
+            <section className="right-side">
+              <section className="cast-members">
+                <h1 className="cast-title">Cast</h1>
+                <p className="castmembers">{castList.join(", ")}</p>
+              </section>
+              <section className="videos">{videos}</section>
             </section>
-            <section className="videos">{videos}</section>
           </section>
-        </section>
+        </div>
       </div>
     </div>
   );

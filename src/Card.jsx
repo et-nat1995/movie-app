@@ -50,7 +50,7 @@ function Card({ id, title, rating, poster }) {
       {clicked && (
         <MovieDetails
           id={id}
-          poster={moviePoster}
+          poster={poster}
           close={handleClick}
           link={link}
           title={title}

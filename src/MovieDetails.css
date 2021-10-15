@@ -4,22 +4,22 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(128, 128, 128, 0.5);
+  background-color: rgba(128, 128, 128, 0.8);
   z-index: 10;
 }
 
 .modal {
   position: fixed;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   color: lightgrey;
   border-radius: 5px;
   top: 50vh;
   left: 50vw;
   transform: translate(-50%, -50%);
-  height: 400px;
+  height: 405px;
   overflow: scroll;
-  min-width: 70%;
+  min-width: 60%;
   background-color: rgb(54, 53, 53);
   padding: 5px;
   z-index: 20;
@@ -29,6 +29,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid grey;
   margin: 0px 10px 0px 10px;
 }
 
@@ -38,15 +39,13 @@
 }
 
 .movie-poster {
-  margin-left: 5px;
+  width: fit-content;
+  margin: 5px;
+  height: 100%;
 }
 
 .cast-members {
   padding: 10px;
-}
-
-.cast-list {
-  list-style: none;
 }
 
 .cast-member {
@@ -59,6 +58,15 @@
   width: 100%;
 }
 
+.poster-image {
+  height: 98%;
+  min-width: 250px;
+}
+
+.left-side {
+  min-width: 250px;
+}
+
 .right-side {
   display: flex;
   flex-direction: column;
@@ -69,10 +77,20 @@
 }
 
 .cast-title {
-  text-align: center;
+  font-size: 25px;
+  text-align: left;
+  margin-bottom: 0px;
+}
+
+.castmembers {
+  margin-top: 5px;
 }
 
 .videos {
-  flex-grow: 1;
-  margin: 15px 5px 0px 5px;
+  margin: 20px 5px 5px 10px;
+}
+
+.movie-title {
+  font-size: 50px;
+  margin: 0px;
 }
