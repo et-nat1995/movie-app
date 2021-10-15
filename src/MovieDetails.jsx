@@ -30,7 +30,9 @@ function MovieDetails({ id, poster, title, close }) {
   });
 
   const moviePoster = poster ? (
-    <img src={link} alt={title} height="98%" width="250px" />
+    <div className="movie-poster">
+      <img src={link} alt={title} height="98%" width="250px" />
+    </div>
   ) : (
     <div className="poster-image">
       <h1>{title}</h1>
@@ -58,23 +60,17 @@ function MovieDetails({ id, poster, title, close }) {
   return (
     <div className="overlay" onClick={close}>
       <div className="modal">
-        <div className="left-side">
-          <section className="movie-poster">{moviePoster}</section>
-        </div>
+        <div className="left-side">{moviePoster}</div>
         <div className="right-side">
           <header className="modal-header">
             <h1 className="movie-title">{title}</h1>
             <GrClose onClick={close} className="close" />
           </header>
-          <section className="main-section">
-            <section className="right-side">
-              <section className="cast-members">
-                <h1 className="cast-title">Cast</h1>
-                <p className="castmembers">{castList.join(", ")}</p>
-              </section>
-              <section className="videos">{videos}</section>
-            </section>
-          </section>
+            <div className="cast-member-list">
+              <h1 className="cast-title">Cast</h1>
+              <p className="castmembers">{castList.join(", ")}</p>
+            </div>
+            <div className="videos">{videos}</div>
         </div>
       </div>
     </div>
